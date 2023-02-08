@@ -4,7 +4,7 @@
 
 ## コントリビューション
 
-些細な変更でも大歓迎です！詳細は CONTRIGUTING.md をご確認ください。
+些細な変更でも大歓迎です！詳細は [CONTRIBUTING.md](./CONTRIBUTING.md) をご確認ください。
 
 ## License
 
