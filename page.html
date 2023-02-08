@@ -87,7 +87,51 @@
 
 <br>
 <div class='voice'><h2>その他詳細</h2>
-
+  <p><details><summary>TwitterにURLとして認識させるには</summary>
+    「http://」で始まる必要がある。<br>
+    「.com」以外の「.」はすべて全角「。」にする必要がある。<br>
+  </details></p>
+  <p><details><summary>なぜドメインに文章を入れるのか</summary>
+    日本語をURLに入れるためには、アルファベットなどに変換する必要がある。これをエンコードと呼ぶ<br>
+    通常、ブラウザのURL欄に日本語を入れると、URLエンコードと呼ばれる処理が施される。<br>
+    しかし、Twitterは自動でURLエンコードしてくれないため、この方法で文章を受け渡す場合はユーザーが自らURLエンコードする必要がある。<br>
+    一方日本語ドメインはPunycodeでエンコードする決まりとなっており、Twitterもこれに対応している。<br>
+    Twitterが自動で変換してくれることから、ドメインに合成する文章を入れることにした。
+  </details></p>
+  <p><details><summary>なぜ「.」の変わりに「。」を使うのか</summary>
+    Twitterでは何故か日本語を「.」で区切るとURLと認識されない。<br>
+    「。」も自動で「.」に変換されるため、「。」を使うことで回避している。
+  </details></p>
+  <p><details><summary>なぜhttps://じゃないのか</summary>
+    https://にするには、ドメインの証明書を発行してもらう必要がある。<br>
+     一階のサブドメインはワイルドカード証明書で対応できる。（*.example.com）<br>
+    二階のサブドメインには対応できない（*.*.example.com）<br>
+    つまり、「あ。い。ボイボ.com」のように句点が複数あると機能しない。<br>
+    よって、TLS対応はしないこととした。<br>
+    TCPにおいてドメインは平文で送信されるため、TLS化によるプライバシーのレベルは変わらない。<br>
+  </details></p>
+  <p><details><summary>Twitterアプリでは再生されない</summary>
+    YouTubeがTwitterアプリで再生できないのと同様、ブラウザ版でしか再生できない模様。<br>
+  </details></p>
+  <p><details><summary>Twitter上でリプレイ、ループ再生ができない</summary>
+    クロスプラットフォームで動作する音声プレーヤーを作成する必要がある。<br>
+    Githubの<a href="https://github.com/ts-klassen/ttsQuestTwitterCard/blob/main/audio.html">audio.html</a>が該当する箇所なので、作ってくれる人が現れれば対応するかも。</br>
+  </details></p>
+  <p><details><summary>WEBサイトのデザインが気に食わない</summary>
+    Githubの<a href="https://github.com/ts-klassen/ttsQuestTwitterCard/blob/main/page.html">page.html</a>が該当する箇所なので、あとは頼んだ。
+  </details></p>
+  <p><details><summary>コンテンツを削除してほしい</summary>
+    このページで生成されるコンテンツは、URLのspeakerパラメーターとtextパラメーターに基づいています。まずはリンク元のURLを削除できないか検討してください。
+  </details></p>
+  <p><details><summary>合成された音声やそのキャッシュを削除してほしい</summary>
+    音声はapi.tts.questで合成され、audio1.tts.questなどからダウンロードできます。<br>
+    音声はハッシュ値を知らないとダウンロードできないため、原則ファイルの削除は受け付けておりません。<br>
+    ランダムなハッシュ値を入力した結果、たまたまそのハッシュ値と一致することは、<a href="https://ja.wikipedia.org/wiki/SHA-2#.E6.94.BB.E6.92.83.E3.81.A8.E8.AA.8D.E8.A8.BC">ありません</a>。<br>
+  </details></p>
+  <p><details><summary>お問い合わせ</summary>
+    脆弱性の報告、削除要請、その他重大な連絡は<a href="https://su-shiki.com/#webmaster">メール</a>へ、<br>
+    不具合の報告などは<a href="https://github.com/ts-klassen/ttsQuestTwitterCard/issues">Github</a>までお願いします。
+  </details></p>
 </div>
 
 </body>
